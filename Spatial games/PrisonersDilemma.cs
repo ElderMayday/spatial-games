@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    class PrisonersDilemma : SymmetricGame
+    class PrisonersDilemma : GameSymmetric
     {
-        public PrisonersDilemma(double Temptation, double Reward, double Punishment, double SuckersPayoff) : base(Reward, SuckersPayoff, Temptation, Punishment)
+        public PrisonersDilemma(double temptation, double reward, double punishment, double suckersPayoff) : base(reward, suckersPayoff, temptation, punishment)
         {
+            if (temptation <= reward)
+                throw new Exception("Wrong game parameters");
+
+            if (reward <= punishment)
+                throw new Exception("Wrong game parameters");
+
+            if (punishment < suckersPayoff)
+                throw new Exception("Wrong game parameters");
+
+            if (temptation + suckersPayoff >= 2 * reward)
+                throw new Exception("Wrong game parameters");
         }
     }
 }
