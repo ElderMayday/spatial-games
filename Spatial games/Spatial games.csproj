@@ -47,10 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="ActionReselector.cs" />
+    <Compile Include="ActionReselectorMax.cs" />
+    <Compile Include="NeighbourDeterminer.cs" />
+    <Compile Include="NeighbourDeterminerMoore.cs" />
+    <Compile Include="NeighbourDeterminerVonNeumann.cs" />
+    <Compile Include="NeighbourhoodType.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="Lattice.cs" />
-    <Compile Include="LatticeMoore.cs" />
     <Compile Include="GameSymmetric.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
