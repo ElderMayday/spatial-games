@@ -1,0 +1,8 @@
+D:\spatial-games\Spatial games\bin\Debug\Spatial games.exe.config
+D:\spatial-games\Spatial games\bin\Debug\Spatial games.exe
+D:\spatial-games\Spatial games\bin\Debug\Spatial games.pdb
+D:\spatial-games\Spatial games\obj\Debug\Spatial games.csprojResolveAssemblyReference.cache
+D:\spatial-games\Spatial games\obj\Debug\Spatial_games.Properties.Resources.resources
+D:\spatial-games\Spatial games\obj\Debug\Spatial games.csproj.GenerateResource.Cache
+D:\spatial-games\Spatial games\obj\Debug\Spatial games.exe
+D:\spatial-games\Spatial games\obj\Debug\Spatial games.pdb
