@@ -35,7 +35,7 @@ namespace Spatial_games
 
                     for (int n = 0; n < numberOfRounds; n++)
                     {
-                        Thread.Sleep(100);
+                        Thread.Sleep(500);
 
                         lattice.NextRound();
 
@@ -89,13 +89,18 @@ namespace Spatial_games
             chart.Series.Add("Cooperation");
             chart.Series["Cooperation"].ChartType = SeriesChartType.FastLine;
             chart.Series["Cooperation"].Color = Color.Red;
+            chart.Series["Cooperation"].BorderWidth = 3;
+            chart.ChartAreas[0].AxisY.Maximum = 1.0;
+            chart.ChartAreas[0].AxisY.Minimum = 0.0;
+            chart.ChartAreas[0].AxisX.Maximum = numberOfRounds;
+            chart.ChartAreas[0].AxisX.Minimum = 0.0;
 
             chart.Series["Cooperation"].Points.AddXY(0, lattice.RatioActionOne);
 
             for (int i = 0; i < numberOfRounds; i++)
             {
                 lattice.NextRound();
-                chart.Series["Cooperation"].Points.AddXY(i, lattice.RatioActionOne);
+                chart.Series["Cooperation"].Points.AddXY(i + 1, lattice.RatioActionOne);
             }
         }
     }
