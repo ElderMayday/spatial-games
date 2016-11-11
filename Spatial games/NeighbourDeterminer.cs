@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    abstract class NeighbourDeterminer
+    abstract public class NeighbourDeterminer
     {
         public NeighbourDeterminer(Lattice lattice)
         {

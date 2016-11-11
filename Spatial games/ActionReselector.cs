@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    abstract class ActionReselector
+    abstract public class ActionReselector
     {
         public ActionReselector()
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Spatial_games
 {
-    abstract class GameSymmetric
+    abstract public class GameSymmetric
     {
         public GameSymmetric(double payoff11, double payoff12, double payoff21, double payoff22)
         {

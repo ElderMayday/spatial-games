@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    class PrisonersDilemma : GameSymmetric
+    public class PrisonersDilemma : GameSymmetric
     {
         public PrisonersDilemma(double temptation, double reward, double punishment, double suckersPayoff) : base(reward, suckersPayoff, temptation, punishment)
         {

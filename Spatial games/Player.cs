@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    class Player
+    public class Player
     {
         public Player()
         {

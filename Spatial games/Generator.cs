@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    static class Generator
+    static public class Generator
     {
         static private Random random = new Random();
 

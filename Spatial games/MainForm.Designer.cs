@@ -28,12 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.picture = new System.Windows.Forms.PictureBox();
+            this.buttonSimulate = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // picture
+            // 
+            this.picture.Location = new System.Drawing.Point(158, 12);
+            this.picture.Name = "picture";
+            this.picture.Size = new System.Drawing.Size(1000, 500);
+            this.picture.TabIndex = 1;
+            this.picture.TabStop = false;
+            // 
+            // buttonSimulate
+            // 
+            this.buttonSimulate.Location = new System.Drawing.Point(12, 12);
+            this.buttonSimulate.Name = "buttonSimulate";
+            this.buttonSimulate.Size = new System.Drawing.Size(121, 48);
+            this.buttonSimulate.TabIndex = 2;
+            this.buttonSimulate.Text = "Simulate";
+            this.buttonSimulate.UseVisualStyleBackColor = true;
+            this.buttonSimulate.Click += new System.EventHandler(this.buttonSimulate_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1170, 526);
+            this.Controls.Add(this.buttonSimulate);
+            this.Controls.Add(this.picture);
+            this.Name = "MainForm";
+            this.Text = "Spatial game";
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox picture;
+        private System.Windows.Forms.Button buttonSimulate;
     }
 }
 

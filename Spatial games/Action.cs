@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    enum Action
+    public enum Action
     {
         One,
         Two

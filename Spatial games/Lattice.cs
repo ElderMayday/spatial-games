@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    abstract class Lattice
+    public class Lattice
     {
         public Lattice(int height, int width, NeighbourhoodType neighbourhoodType, GameSymmetric game, ActionReselector actionReselector)
         {
@@ -27,6 +27,12 @@ namespace Spatial_games
             for (int i = 0; i < height; i++)
                 for (int j = 0; j < width; j++)
                     this.player[i, j] = new Player();
+        }
+
+        public void PlayRounds(int number)
+        {
+            for (int i = 0; i < number; i++)
+                this.NextRound();
         }
 
         public void NextRound()

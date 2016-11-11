@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    class ActionReselectorMax : ActionReselector
+    public class ActionReselectorMax : ActionReselector
     {
         public override Action Reselect(List<Player> neighbours)
         {

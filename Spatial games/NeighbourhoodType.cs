@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spatial_games
 {
-    enum NeighbourhoodType
+    public enum NeighbourhoodType
     {
         Moore,
         VonNeumann
