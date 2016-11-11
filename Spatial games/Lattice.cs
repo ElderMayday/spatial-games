@@ -8,7 +8,7 @@ namespace Spatial_games
 {
     public class Lattice
     {
-        public Lattice(int height, int width, NeighbourhoodType neighbourhoodType, GameSymmetric game, ActionReselector actionReselector)
+        public Lattice(int height, int width, NeighbourhoodType neighbourhoodType, GameSymmetric game, Reselector reselector)
         {
             this.Height = height;
             this.Width = width;
@@ -20,7 +20,12 @@ namespace Spatial_games
             }
 
             this.Game = game;
-            this.ActionReselector = actionReselector;
+
+            switch (reselector)
+            {
+                case Reselector.Max: ActionReselector = new ActionReselectorMax(); break;
+                case Reselector.Replicator: ActionReselector = new ActionReselectorReplicator(Game.maxPayoff, Game.minPayoff); break;
+            }
 
             player = new Player[height, width];
 
@@ -53,7 +58,7 @@ namespace Spatial_games
                 for (int j = 0; j < Width; j++)
                 {
                     var neighbours = NeighbourDeterminer.Determine(i, j);
-                    this.player[i, j].ChosenAction = this.ActionReselector.Reselect(neighbours);
+                    this.player[i, j].ChosenAction = this.ActionReselector.Reselect(this.player[i, j], neighbours);
                 }
         }
 

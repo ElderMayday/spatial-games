@@ -12,6 +12,6 @@ namespace Spatial_games
         {
         }
 
-        public abstract Action Reselect(List<Player> neighbours);
+        public abstract Action Reselect(Player player, List<Player> neighbours);
     }
 }

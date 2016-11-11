@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Spatial_games
 {
@@ -8,6 +8,10 @@ namespace Spatial_games
     {
         public GameSymmetric(double payoff11, double payoff12, double payoff21, double payoff22)
         {
+            List<double> list = new List<double>(){ payoff11, payoff12, payoff21, payoff22 };
+            this.maxPayoff = list.Max(x => x);
+            this.minPayoff = list.Min(x => x);
+
             payoff = new Dictionary<Tuple<Action, Action>, double>
             {
                 {new Tuple<Action, Action>(Action.One, Action.One), payoff11 },
@@ -28,5 +32,7 @@ namespace Spatial_games
         }
 
         protected Dictionary<Tuple<Action, Action>, double> payoff;
+        public double minPayoff { get; protected set; }
+        public double maxPayoff { get; protected set; }
     }
 }

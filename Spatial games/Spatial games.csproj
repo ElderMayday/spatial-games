@@ -49,6 +49,7 @@
     <Compile Include="Action.cs" />
     <Compile Include="ActionReselector.cs" />
     <Compile Include="ActionReselectorMax.cs" />
+    <Compile Include="ActionReselectorReplicator.cs" />
     <Compile Include="NeighbourDeterminer.cs" />
     <Compile Include="NeighbourDeterminerMoore.cs" />
     <Compile Include="NeighbourDeterminerVonNeumann.cs" />
@@ -63,7 +64,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrisonersDilemma.cs" />
+    <Compile Include="Reselector.cs" />
+    <Compile Include="TrpsGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
