@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.picture = new System.Windows.Forms.PictureBox();
             this.buttonSimulate = new System.Windows.Forms.Button();
             this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
@@ -37,8 +40,8 @@
             this.labelWidth = new System.Windows.Forms.Label();
             this.labelRounds = new System.Windows.Forms.Label();
             this.groupBoxNeighbourhood = new System.Windows.Forms.GroupBox();
-            this.radioButtonMoore = new System.Windows.Forms.RadioButton();
             this.radioButtonVonNeumann = new System.Windows.Forms.RadioButton();
+            this.radioButtonMoore = new System.Windows.Forms.RadioButton();
             this.groupBoxGame = new System.Windows.Forms.GroupBox();
             this.radioButtonSnowdrift = new System.Windows.Forms.RadioButton();
             this.radioButtonPrisonersDilemma = new System.Windows.Forms.RadioButton();
@@ -48,6 +51,13 @@
             this.groupBoxInTime = new System.Windows.Forms.GroupBox();
             this.radioButtonTemporal = new System.Windows.Forms.RadioButton();
             this.radioButtonInstant = new System.Windows.Forms.RadioButton();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageLattice = new System.Windows.Forms.TabPage();
+            this.tabPagePlot = new System.Windows.Forms.TabPage();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.buttonPlot = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
@@ -56,21 +66,25 @@
             this.groupBoxGame.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
             this.groupBoxInTime.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPageLattice.SuspendLayout();
+            this.tabPagePlot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
             // picture
             // 
-            this.picture.Location = new System.Drawing.Point(158, 12);
+            this.picture.Location = new System.Drawing.Point(191, 51);
             this.picture.Name = "picture";
-            this.picture.Size = new System.Drawing.Size(1000, 500);
+            this.picture.Size = new System.Drawing.Size(980, 500);
             this.picture.TabIndex = 1;
             this.picture.TabStop = false;
             // 
             // buttonSimulate
             // 
-            this.buttonSimulate.Location = new System.Drawing.Point(12, 12);
+            this.buttonSimulate.Location = new System.Drawing.Point(6, 6);
             this.buttonSimulate.Name = "buttonSimulate";
-            this.buttonSimulate.Size = new System.Drawing.Size(121, 48);
+            this.buttonSimulate.Size = new System.Drawing.Size(165, 48);
             this.buttonSimulate.TabIndex = 2;
             this.buttonSimulate.Text = "Simulate";
             this.buttonSimulate.UseVisualStyleBackColor = true;
@@ -78,7 +92,7 @@
             // 
             // numericUpDownWidth
             // 
-            this.numericUpDownWidth.Location = new System.Drawing.Point(77, 102);
+            this.numericUpDownWidth.Location = new System.Drawing.Point(529, 38);
             this.numericUpDownWidth.Name = "numericUpDownWidth";
             this.numericUpDownWidth.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownWidth.TabIndex = 3;
@@ -90,7 +104,7 @@
             // 
             // numericUpDownHeight
             // 
-            this.numericUpDownHeight.Location = new System.Drawing.Point(77, 76);
+            this.numericUpDownHeight.Location = new System.Drawing.Point(529, 12);
             this.numericUpDownHeight.Name = "numericUpDownHeight";
             this.numericUpDownHeight.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownHeight.TabIndex = 4;
@@ -102,7 +116,7 @@
             // 
             // numericUpDownRounds
             // 
-            this.numericUpDownRounds.Location = new System.Drawing.Point(77, 128);
+            this.numericUpDownRounds.Location = new System.Drawing.Point(529, 64);
             this.numericUpDownRounds.Name = "numericUpDownRounds";
             this.numericUpDownRounds.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownRounds.TabIndex = 5;
@@ -115,7 +129,7 @@
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(16, 78);
+            this.labelHeight.Location = new System.Drawing.Point(468, 14);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(38, 13);
             this.labelHeight.TabIndex = 6;
@@ -124,7 +138,7 @@
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(19, 109);
+            this.labelWidth.Location = new System.Drawing.Point(471, 45);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(35, 13);
             this.labelWidth.TabIndex = 7;
@@ -132,7 +146,7 @@
             // 
             // labelRounds
             // 
-            this.labelRounds.Location = new System.Drawing.Point(9, 128);
+            this.labelRounds.Location = new System.Drawing.Point(461, 64);
             this.labelRounds.Name = "labelRounds";
             this.labelRounds.Size = new System.Drawing.Size(62, 31);
             this.labelRounds.TabIndex = 8;
@@ -142,12 +156,22 @@
             // 
             this.groupBoxNeighbourhood.Controls.Add(this.radioButtonVonNeumann);
             this.groupBoxNeighbourhood.Controls.Add(this.radioButtonMoore);
-            this.groupBoxNeighbourhood.Location = new System.Drawing.Point(12, 162);
+            this.groupBoxNeighbourhood.Location = new System.Drawing.Point(12, 12);
             this.groupBoxNeighbourhood.Name = "groupBoxNeighbourhood";
-            this.groupBoxNeighbourhood.Size = new System.Drawing.Size(140, 70);
+            this.groupBoxNeighbourhood.Size = new System.Drawing.Size(140, 75);
             this.groupBoxNeighbourhood.TabIndex = 9;
             this.groupBoxNeighbourhood.TabStop = false;
             this.groupBoxNeighbourhood.Text = "Neighbourhood";
+            // 
+            // radioButtonVonNeumann
+            // 
+            this.radioButtonVonNeumann.AutoSize = true;
+            this.radioButtonVonNeumann.Location = new System.Drawing.Point(10, 42);
+            this.radioButtonVonNeumann.Name = "radioButtonVonNeumann";
+            this.radioButtonVonNeumann.Size = new System.Drawing.Size(93, 17);
+            this.radioButtonVonNeumann.TabIndex = 1;
+            this.radioButtonVonNeumann.Text = "Von Neumann";
+            this.radioButtonVonNeumann.UseVisualStyleBackColor = true;
             // 
             // radioButtonMoore
             // 
@@ -161,21 +185,11 @@
             this.radioButtonMoore.Text = "Moore";
             this.radioButtonMoore.UseVisualStyleBackColor = true;
             // 
-            // radioButtonVonNeumann
-            // 
-            this.radioButtonVonNeumann.AutoSize = true;
-            this.radioButtonVonNeumann.Location = new System.Drawing.Point(10, 42);
-            this.radioButtonVonNeumann.Name = "radioButtonVonNeumann";
-            this.radioButtonVonNeumann.Size = new System.Drawing.Size(93, 17);
-            this.radioButtonVonNeumann.TabIndex = 1;
-            this.radioButtonVonNeumann.Text = "Von Neumann";
-            this.radioButtonVonNeumann.UseVisualStyleBackColor = true;
-            // 
             // groupBoxGame
             // 
             this.groupBoxGame.Controls.Add(this.radioButtonSnowdrift);
             this.groupBoxGame.Controls.Add(this.radioButtonPrisonersDilemma);
-            this.groupBoxGame.Location = new System.Drawing.Point(12, 238);
+            this.groupBoxGame.Location = new System.Drawing.Point(158, 12);
             this.groupBoxGame.Name = "groupBoxGame";
             this.groupBoxGame.Size = new System.Drawing.Size(140, 75);
             this.groupBoxGame.TabIndex = 10;
@@ -208,9 +222,9 @@
             // 
             this.groupBoxUpdate.Controls.Add(this.radioButtonReplicator);
             this.groupBoxUpdate.Controls.Add(this.radioButtonMax);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(12, 319);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(304, 12);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
-            this.groupBoxUpdate.Size = new System.Drawing.Size(140, 71);
+            this.groupBoxUpdate.Size = new System.Drawing.Size(140, 75);
             this.groupBoxUpdate.TabIndex = 11;
             this.groupBoxUpdate.TabStop = false;
             this.groupBoxUpdate.Text = "Update mechanism";
@@ -241,9 +255,9 @@
             // 
             this.groupBoxInTime.Controls.Add(this.radioButtonTemporal);
             this.groupBoxInTime.Controls.Add(this.radioButtonInstant);
-            this.groupBoxInTime.Location = new System.Drawing.Point(12, 396);
+            this.groupBoxInTime.Location = new System.Drawing.Point(6, 70);
             this.groupBoxInTime.Name = "groupBoxInTime";
-            this.groupBoxInTime.Size = new System.Drawing.Size(140, 71);
+            this.groupBoxInTime.Size = new System.Drawing.Size(165, 71);
             this.groupBoxInTime.TabIndex = 12;
             this.groupBoxInTime.TabStop = false;
             this.groupBoxInTime.Text = "Time";
@@ -270,23 +284,106 @@
             this.radioButtonInstant.Text = "Instant";
             this.radioButtonInstant.UseVisualStyleBackColor = true;
             // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPageLattice);
+            this.tabControl.Controls.Add(this.tabPagePlot);
+            this.tabControl.Location = new System.Drawing.Point(12, 92);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1185, 586);
+            this.tabControl.TabIndex = 13;
+            // 
+            // tabPageLattice
+            // 
+            this.tabPageLattice.Controls.Add(this.label2);
+            this.tabPageLattice.Controls.Add(this.label1);
+            this.tabPageLattice.Controls.Add(this.buttonSimulate);
+            this.tabPageLattice.Controls.Add(this.picture);
+            this.tabPageLattice.Controls.Add(this.groupBoxInTime);
+            this.tabPageLattice.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLattice.Name = "tabPageLattice";
+            this.tabPageLattice.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLattice.Size = new System.Drawing.Size(1177, 560);
+            this.tabPageLattice.TabIndex = 0;
+            this.tabPageLattice.Text = "Lattice";
+            this.tabPageLattice.UseVisualStyleBackColor = true;
+            // 
+            // tabPagePlot
+            // 
+            this.tabPagePlot.Controls.Add(this.chart);
+            this.tabPagePlot.Controls.Add(this.buttonPlot);
+            this.tabPagePlot.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePlot.Name = "tabPagePlot";
+            this.tabPagePlot.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePlot.Size = new System.Drawing.Size(1177, 560);
+            this.tabPagePlot.TabIndex = 1;
+            this.tabPagePlot.Text = "Plot";
+            this.tabPagePlot.UseVisualStyleBackColor = true;
+            // 
+            // chart
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart.Legends.Add(legend3);
+            this.chart.Location = new System.Drawing.Point(216, 6);
+            this.chart.Name = "chart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart.Series.Add(series3);
+            this.chart.Size = new System.Drawing.Size(955, 508);
+            this.chart.TabIndex = 1;
+            this.chart.Text = "chart1";
+            // 
+            // buttonPlot
+            // 
+            this.buttonPlot.Location = new System.Drawing.Point(6, 6);
+            this.buttonPlot.Name = "buttonPlot";
+            this.buttonPlot.Size = new System.Drawing.Size(165, 48);
+            this.buttonPlot.TabIndex = 0;
+            this.buttonPlot.Text = "Plot";
+            this.buttonPlot.UseVisualStyleBackColor = true;
+            this.buttonPlot.Click += new System.EventHandler(this.buttonPlot_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(197, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Red - Cooperate";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(345, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Yellow - Defect";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 591);
-            this.Controls.Add(this.groupBoxInTime);
-            this.Controls.Add(this.groupBoxUpdate);
-            this.Controls.Add(this.groupBoxGame);
+            this.ClientSize = new System.Drawing.Size(1221, 694);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.groupBoxNeighbourhood);
-            this.Controls.Add(this.labelRounds);
-            this.Controls.Add(this.labelWidth);
-            this.Controls.Add(this.picture);
-            this.Controls.Add(this.labelHeight);
-            this.Controls.Add(this.buttonSimulate);
-            this.Controls.Add(this.numericUpDownRounds);
+            this.Controls.Add(this.groupBoxGame);
+            this.Controls.Add(this.groupBoxUpdate);
             this.Controls.Add(this.numericUpDownHeight);
+            this.Controls.Add(this.numericUpDownRounds);
+            this.Controls.Add(this.labelWidth);
             this.Controls.Add(this.numericUpDownWidth);
+            this.Controls.Add(this.labelRounds);
+            this.Controls.Add(this.labelHeight);
             this.Name = "MainForm";
             this.Text = "Spatial game";
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
@@ -301,6 +398,11 @@
             this.groupBoxUpdate.PerformLayout();
             this.groupBoxInTime.ResumeLayout(false);
             this.groupBoxInTime.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabPageLattice.ResumeLayout(false);
+            this.tabPageLattice.PerformLayout();
+            this.tabPagePlot.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +430,13 @@
         private System.Windows.Forms.GroupBox groupBoxInTime;
         private System.Windows.Forms.RadioButton radioButtonTemporal;
         private System.Windows.Forms.RadioButton radioButtonInstant;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageLattice;
+        private System.Windows.Forms.TabPage tabPagePlot;
+        private System.Windows.Forms.Button buttonPlot;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Spatial_games
 {
@@ -20,7 +21,6 @@ namespace Spatial_games
             bool modelInTime = radioButtonTemporal.Checked;
             GameSymmetric game = radioButtonPrisonersDilemma.Checked ? new TrpsGame(10, 7, 0, 0) : new TrpsGame(10, 7, 0, 3);
             NeighbourhoodType neighbourhoodType = radioButtonMoore.Checked ? NeighbourhoodType.Moore : NeighbourhoodType.VonNeumann;
-
             Reselector reselector = radioButtonMax.Checked ? Reselector.Max : Reselector.Replicator;
 
             Lattice lattice = new Lattice(height, width, neighbourhoodType, game, reselector);
@@ -49,7 +49,6 @@ namespace Spatial_games
                     drawLattice(lattice, graphics);
                 }
             }
-
         }
 
         protected void drawLattice(Lattice lattice, Graphics graphics)
@@ -72,6 +71,32 @@ namespace Spatial_games
             int size = 10;
             graphics.FillRectangle(new SolidBrush(color), row * size, column * size, size, size);
             graphics.DrawRectangle(new Pen(Color.Black), row * size, column * size, size, size);
+        }
+
+        private void buttonPlot_Click(object sender, EventArgs e)
+        {
+            chart.Series.Clear();
+
+            int numberOfRounds = (int)numericUpDownRounds.Value;
+            int height = (int)numericUpDownHeight.Value;
+            int width = (int)numericUpDownWidth.Value;
+            GameSymmetric game = radioButtonPrisonersDilemma.Checked ? new TrpsGame(10, 7, 0, 0) : new TrpsGame(10, 7, 0, 3);
+            NeighbourhoodType neighbourhoodType = radioButtonMoore.Checked ? NeighbourhoodType.Moore : NeighbourhoodType.VonNeumann;
+            Reselector reselector = radioButtonMax.Checked ? Reselector.Max : Reselector.Replicator;
+
+            Lattice lattice = new Lattice(height, width, neighbourhoodType, game, reselector);
+
+            chart.Series.Add("Cooperation");
+            chart.Series["Cooperation"].ChartType = SeriesChartType.FastLine;
+            chart.Series["Cooperation"].Color = Color.Red;
+
+            chart.Series["Cooperation"].Points.AddXY(0, lattice.RatioActionOne);
+
+            for (int i = 0; i < numberOfRounds; i++)
+            {
+                lattice.NextRound();
+                chart.Series["Cooperation"].Points.AddXY(i, lattice.RatioActionOne);
+            }
         }
     }
 }
