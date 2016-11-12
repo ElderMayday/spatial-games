@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.picture = new System.Windows.Forms.PictureBox();
             this.buttonSimulate = new System.Windows.Forms.Button();
             this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
@@ -63,6 +66,10 @@
             this.buttonPlot = new System.Windows.Forms.Button();
             this.numericUpDownSimulations = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.chartDist = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.numericUpDownIntervals = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelMeanDeviation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
@@ -77,7 +84,10 @@
             this.tabControlPlot.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTime)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervals)).BeginInit();
             this.SuspendLayout();
             // 
             // picture
@@ -299,7 +309,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 92);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1185, 586);
+            this.tabControl.Size = new System.Drawing.Size(1185, 600);
             this.tabControl.TabIndex = 13;
             // 
             // tabPageLattice
@@ -346,7 +356,7 @@
             this.tabPagePlot.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlot.Name = "tabPagePlot";
             this.tabPagePlot.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlot.Size = new System.Drawing.Size(1177, 560);
+            this.tabPagePlot.Size = new System.Drawing.Size(1177, 574);
             this.tabPagePlot.TabIndex = 1;
             this.tabPagePlot.Text = "Plot";
             this.tabPagePlot.UseVisualStyleBackColor = true;
@@ -358,7 +368,7 @@
             this.tabControlPlot.Location = new System.Drawing.Point(190, 6);
             this.tabControlPlot.Name = "tabControlPlot";
             this.tabControlPlot.SelectedIndex = 0;
-            this.tabControlPlot.Size = new System.Drawing.Size(974, 548);
+            this.tabControlPlot.Size = new System.Drawing.Size(974, 558);
             this.tabControlPlot.TabIndex = 2;
             // 
             // tabPage1
@@ -390,12 +400,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelMeanDeviation);
+            this.tabPage2.Controls.Add(this.chartDist);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(966, 522);
+            this.tabPage2.Size = new System.Drawing.Size(966, 532);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Fraction distribution";
+            this.tabPage2.Text = "Fraction Distribution";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // buttonPlot
@@ -410,7 +422,7 @@
             // 
             // numericUpDownSimulations
             // 
-            this.numericUpDownSimulations.Location = new System.Drawing.Point(665, 12);
+            this.numericUpDownSimulations.Location = new System.Drawing.Point(665, 14);
             this.numericUpDownSimulations.Name = "numericUpDownSimulations";
             this.numericUpDownSimulations.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownSimulations.TabIndex = 14;
@@ -428,11 +440,57 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Number of simulations";
             // 
+            // chartDist
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartDist.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartDist.Legends.Add(legend2);
+            this.chartDist.Location = new System.Drawing.Point(3, 38);
+            this.chartDist.Name = "chartDist";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartDist.Series.Add(series2);
+            this.chartDist.Size = new System.Drawing.Size(955, 491);
+            this.chartDist.TabIndex = 16;
+            this.chartDist.Text = "chartDist";
+            // 
+            // numericUpDownIntervals
+            // 
+            this.numericUpDownIntervals.Location = new System.Drawing.Point(665, 54);
+            this.numericUpDownIntervals.Name = "numericUpDownIntervals";
+            this.numericUpDownIntervals.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownIntervals.TabIndex = 16;
+            this.numericUpDownIntervals.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(597, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 39);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Number of distribution intervals";
+            // 
+            // labelMeanDeviation
+            // 
+            this.labelMeanDeviation.AutoSize = true;
+            this.labelMeanDeviation.Location = new System.Drawing.Point(44, 13);
+            this.labelMeanDeviation.Name = "labelMeanDeviation";
+            this.labelMeanDeviation.Size = new System.Drawing.Size(0, 13);
+            this.labelMeanDeviation.TabIndex = 17;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1221, 694);
+            this.Controls.Add(this.numericUpDownIntervals);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDownSimulations);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tabControl);
@@ -466,7 +524,11 @@
             this.tabControlPlot.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTime)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,6 +568,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.NumericUpDown numericUpDownSimulations;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDist;
+        private System.Windows.Forms.NumericUpDown numericUpDownIntervals;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelMeanDeviation;
     }
 }
 
