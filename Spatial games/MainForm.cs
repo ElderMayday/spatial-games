@@ -143,9 +143,18 @@ namespace Spatial_games
             double mean = values.Sum() / (double)experimentNumber;
             double deviation = Math.Sqrt(values.Sum(x => Math.Pow(x - mean, 2.0)) / (double) experimentNumber);
 
-            leftValue = mean - 3 * deviation;
-            rightValue = mean + 3 * deviation;
-            intervalWidth = (rightValue - leftValue) / (double) intervalNumber;
+            if (deviation > 0.001)
+            {
+                leftValue = mean - 3 * deviation;
+                rightValue = mean + 3 * deviation;
+            }
+            else
+            {
+                leftValue = mean - 0.1;
+                rightValue = mean + 0.1;
+            }
+
+            intervalWidth = (rightValue - leftValue) / (double)intervalNumber;
 
             probability = new double[intervalNumber];
 
@@ -175,8 +184,15 @@ namespace Spatial_games
             chartDist.ChartAreas[0].AxisX.Title = "Fraction";
             chartDist.ChartAreas[0].AxisY.Title = "Probability";
             chartDist.ChartAreas[0].AxisY.Minimum = 0.0;
+            chartDist.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00}";
             chartDist.ChartAreas[0].AxisX.Maximum = rightValue;
             chartDist.ChartAreas[0].AxisX.Minimum = leftValue;
+
+            if (leftValue < 0.0)
+                chartDist.ChartAreas[0].AxisX.Minimum = -0.1;
+
+            if (rightValue > 1.0)
+                chartDist.ChartAreas[0].AxisX.Maximum = 1.1;
 
             for (int i = 0; i < intervalNumber; i++)
                 chartDist.Series["Probability"].Points.AddXY(leftValue + i * intervalWidth, probability[i]);
