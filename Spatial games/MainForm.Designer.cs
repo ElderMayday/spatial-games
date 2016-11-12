@@ -63,13 +63,13 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chartTime = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelMeanDeviation = new System.Windows.Forms.Label();
+            this.chartDist = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonPlot = new System.Windows.Forms.Button();
             this.numericUpDownSimulations = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.chartDist = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.numericUpDownIntervals = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.labelMeanDeviation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
@@ -85,8 +85,8 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTime)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervals)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,22 +217,22 @@
             // radioButtonSnowdrift
             // 
             this.radioButtonSnowdrift.AutoSize = true;
+            this.radioButtonSnowdrift.Checked = true;
             this.radioButtonSnowdrift.Location = new System.Drawing.Point(10, 42);
             this.radioButtonSnowdrift.Name = "radioButtonSnowdrift";
             this.radioButtonSnowdrift.Size = new System.Drawing.Size(69, 17);
             this.radioButtonSnowdrift.TabIndex = 3;
+            this.radioButtonSnowdrift.TabStop = true;
             this.radioButtonSnowdrift.Text = "Snowdrift";
             this.radioButtonSnowdrift.UseVisualStyleBackColor = true;
             // 
             // radioButtonPrisonersDilemma
             // 
             this.radioButtonPrisonersDilemma.AutoSize = true;
-            this.radioButtonPrisonersDilemma.Checked = true;
             this.radioButtonPrisonersDilemma.Location = new System.Drawing.Point(10, 19);
             this.radioButtonPrisonersDilemma.Name = "radioButtonPrisonersDilemma";
             this.radioButtonPrisonersDilemma.Size = new System.Drawing.Size(111, 17);
             this.radioButtonPrisonersDilemma.TabIndex = 2;
-            this.radioButtonPrisonersDilemma.TabStop = true;
             this.radioButtonPrisonersDilemma.Text = "Prisoners Dilemma";
             this.radioButtonPrisonersDilemma.UseVisualStyleBackColor = true;
             // 
@@ -250,22 +250,22 @@
             // radioButtonReplicator
             // 
             this.radioButtonReplicator.AutoSize = true;
+            this.radioButtonReplicator.Checked = true;
             this.radioButtonReplicator.Location = new System.Drawing.Point(10, 42);
             this.radioButtonReplicator.Name = "radioButtonReplicator";
             this.radioButtonReplicator.Size = new System.Drawing.Size(73, 17);
             this.radioButtonReplicator.TabIndex = 3;
+            this.radioButtonReplicator.TabStop = true;
             this.radioButtonReplicator.Text = "Replicator";
             this.radioButtonReplicator.UseVisualStyleBackColor = true;
             // 
             // radioButtonMax
             // 
             this.radioButtonMax.AutoSize = true;
-            this.radioButtonMax.Checked = true;
             this.radioButtonMax.Location = new System.Drawing.Point(10, 19);
             this.radioButtonMax.Name = "radioButtonMax";
             this.radioButtonMax.Size = new System.Drawing.Size(45, 17);
             this.radioButtonMax.TabIndex = 2;
-            this.radioButtonMax.TabStop = true;
             this.radioButtonMax.Text = "Max";
             this.radioButtonMax.UseVisualStyleBackColor = true;
             // 
@@ -322,7 +322,7 @@
             this.tabPageLattice.Location = new System.Drawing.Point(4, 22);
             this.tabPageLattice.Name = "tabPageLattice";
             this.tabPageLattice.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLattice.Size = new System.Drawing.Size(1177, 560);
+            this.tabPageLattice.Size = new System.Drawing.Size(1177, 574);
             this.tabPageLattice.TabIndex = 0;
             this.tabPageLattice.Text = "Lattice";
             this.tabPageLattice.UseVisualStyleBackColor = true;
@@ -377,7 +377,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(966, 522);
+            this.tabPage1.Size = new System.Drawing.Size(966, 532);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "FractionTime";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -410,6 +410,30 @@
             this.tabPage2.Text = "Fraction Distribution";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // labelMeanDeviation
+            // 
+            this.labelMeanDeviation.AutoSize = true;
+            this.labelMeanDeviation.Location = new System.Drawing.Point(44, 13);
+            this.labelMeanDeviation.Name = "labelMeanDeviation";
+            this.labelMeanDeviation.Size = new System.Drawing.Size(0, 13);
+            this.labelMeanDeviation.TabIndex = 17;
+            // 
+            // chartDist
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartDist.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartDist.Legends.Add(legend2);
+            this.chartDist.Location = new System.Drawing.Point(3, 38);
+            this.chartDist.Name = "chartDist";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartDist.Series.Add(series2);
+            this.chartDist.Size = new System.Drawing.Size(955, 491);
+            this.chartDist.TabIndex = 16;
+            this.chartDist.Text = "chartDist";
+            // 
             // buttonPlot
             // 
             this.buttonPlot.Location = new System.Drawing.Point(6, 6);
@@ -440,22 +464,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Number of simulations";
             // 
-            // chartDist
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartDist.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartDist.Legends.Add(legend2);
-            this.chartDist.Location = new System.Drawing.Point(3, 38);
-            this.chartDist.Name = "chartDist";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartDist.Series.Add(series2);
-            this.chartDist.Size = new System.Drawing.Size(955, 491);
-            this.chartDist.TabIndex = 16;
-            this.chartDist.Text = "chartDist";
-            // 
             // numericUpDownIntervals
             // 
             this.numericUpDownIntervals.Location = new System.Drawing.Point(665, 54);
@@ -475,14 +483,6 @@
             this.label4.Size = new System.Drawing.Size(62, 39);
             this.label4.TabIndex = 17;
             this.label4.Text = "Number of distribution intervals";
-            // 
-            // labelMeanDeviation
-            // 
-            this.labelMeanDeviation.AutoSize = true;
-            this.labelMeanDeviation.Location = new System.Drawing.Point(44, 13);
-            this.labelMeanDeviation.Name = "labelMeanDeviation";
-            this.labelMeanDeviation.Size = new System.Drawing.Size(0, 13);
-            this.labelMeanDeviation.TabIndex = 17;
             // 
             // MainForm
             // 
@@ -526,8 +526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartTime)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

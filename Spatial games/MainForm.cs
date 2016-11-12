@@ -128,6 +128,9 @@ namespace Spatial_games
             chartTime.ChartAreas[0].AxisX.Maximum = roundNumber;
             chartTime.ChartAreas[0].AxisX.Minimum = 0.0;
 
+            if (roundNumber >= 20)
+                chartTime.ChartAreas[0].AxisX.Interval = 10.0;
+
             for (int round = 0; round < roundNumber + 1; round++)
                 chartTime.Series["Cooperation"].Points.AddXY(round, fraction[round].Sum() / (double)experimentNumber);
         }
