@@ -9,7 +9,8 @@ namespace Spatial_games
     public enum Reselector
     {
         Max,
-        Replicator,
+        Replicator4,
+        Replicator8,
         Custom
     }
 }

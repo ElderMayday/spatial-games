@@ -24,7 +24,8 @@ namespace Spatial_games
             switch (reselector)
             {
                 case Reselector.Max: ActionReselector = new ActionReselectorMax(); break;
-                case Reselector.Replicator: ActionReselector = new ActionReselectorReplicator(Game.maxPayoff, Game.minPayoff); break;
+                case Reselector.Replicator4: ActionReselector = new ActionReselectorReplicator(Game.maxPayoff, Game.minPayoff, 4.0); break;
+                case Reselector.Replicator8: ActionReselector = new ActionReselectorReplicator(Game.maxPayoff, Game.minPayoff, 8.0); break;
                 case Reselector.Custom: ActionReselector = new ActionReselectorCustom(); break;
             }
 

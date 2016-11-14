@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.picture = new System.Windows.Forms.PictureBox();
             this.buttonSimulate = new System.Windows.Forms.Button();
             this.numericUpDownWidth = new System.Windows.Forms.NumericUpDown();
@@ -49,6 +49,7 @@
             this.radioButtonSnowdrift = new System.Windows.Forms.RadioButton();
             this.radioButtonPrisonersDilemma = new System.Windows.Forms.RadioButton();
             this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
+            this.radioButtonCustom = new System.Windows.Forms.RadioButton();
             this.radioButtonReplicator = new System.Windows.Forms.RadioButton();
             this.radioButtonMax = new System.Windows.Forms.RadioButton();
             this.groupBoxInTime = new System.Windows.Forms.GroupBox();
@@ -70,7 +71,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDownIntervals = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButtonCustom = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
@@ -218,22 +218,22 @@
             // radioButtonSnowdrift
             // 
             this.radioButtonSnowdrift.AutoSize = true;
+            this.radioButtonSnowdrift.Checked = true;
             this.radioButtonSnowdrift.Location = new System.Drawing.Point(10, 42);
             this.radioButtonSnowdrift.Name = "radioButtonSnowdrift";
             this.radioButtonSnowdrift.Size = new System.Drawing.Size(69, 17);
             this.radioButtonSnowdrift.TabIndex = 3;
+            this.radioButtonSnowdrift.TabStop = true;
             this.radioButtonSnowdrift.Text = "Snowdrift";
             this.radioButtonSnowdrift.UseVisualStyleBackColor = true;
             // 
             // radioButtonPrisonersDilemma
             // 
             this.radioButtonPrisonersDilemma.AutoSize = true;
-            this.radioButtonPrisonersDilemma.Checked = true;
             this.radioButtonPrisonersDilemma.Location = new System.Drawing.Point(10, 19);
             this.radioButtonPrisonersDilemma.Name = "radioButtonPrisonersDilemma";
             this.radioButtonPrisonersDilemma.Size = new System.Drawing.Size(111, 17);
             this.radioButtonPrisonersDilemma.TabIndex = 2;
-            this.radioButtonPrisonersDilemma.TabStop = true;
             this.radioButtonPrisonersDilemma.Text = "Prisoners Dilemma";
             this.radioButtonPrisonersDilemma.UseVisualStyleBackColor = true;
             // 
@@ -249,13 +249,25 @@
             this.groupBoxUpdate.TabStop = false;
             this.groupBoxUpdate.Text = "Update mechanism";
             // 
+            // radioButtonCustom
+            // 
+            this.radioButtonCustom.AutoSize = true;
+            this.radioButtonCustom.Location = new System.Drawing.Point(10, 66);
+            this.radioButtonCustom.Name = "radioButtonCustom";
+            this.radioButtonCustom.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonCustom.TabIndex = 4;
+            this.radioButtonCustom.Text = "Custom";
+            this.radioButtonCustom.UseVisualStyleBackColor = true;
+            // 
             // radioButtonReplicator
             // 
             this.radioButtonReplicator.AutoSize = true;
+            this.radioButtonReplicator.Checked = true;
             this.radioButtonReplicator.Location = new System.Drawing.Point(10, 42);
             this.radioButtonReplicator.Name = "radioButtonReplicator";
             this.radioButtonReplicator.Size = new System.Drawing.Size(73, 17);
             this.radioButtonReplicator.TabIndex = 3;
+            this.radioButtonReplicator.TabStop = true;
             this.radioButtonReplicator.Text = "Replicator";
             this.radioButtonReplicator.UseVisualStyleBackColor = true;
             // 
@@ -384,16 +396,16 @@
             // 
             // chartTime
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartTime.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTime.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartTime.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartTime.Legends.Add(legend3);
             this.chartTime.Location = new System.Drawing.Point(6, 6);
             this.chartTime.Name = "chartTime";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartTime.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartTime.Series.Add(series3);
             this.chartTime.Size = new System.Drawing.Size(955, 508);
             this.chartTime.TabIndex = 1;
             this.chartTime.Text = "chart1";
@@ -420,16 +432,16 @@
             // 
             // chartDist
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartDist.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartDist.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chartDist.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartDist.Legends.Add(legend4);
             this.chartDist.Location = new System.Drawing.Point(3, 38);
             this.chartDist.Name = "chartDist";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartDist.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartDist.Series.Add(series4);
             this.chartDist.Size = new System.Drawing.Size(955, 491);
             this.chartDist.TabIndex = 16;
             this.chartDist.Text = "chartDist";
@@ -483,18 +495,6 @@
             this.label4.Size = new System.Drawing.Size(62, 39);
             this.label4.TabIndex = 17;
             this.label4.Text = "Number of distribution intervals";
-            // 
-            // radioButtonCustom
-            // 
-            this.radioButtonCustom.AutoSize = true;
-            this.radioButtonCustom.Checked = true;
-            this.radioButtonCustom.Location = new System.Drawing.Point(10, 66);
-            this.radioButtonCustom.Name = "radioButtonCustom";
-            this.radioButtonCustom.Size = new System.Drawing.Size(60, 17);
-            this.radioButtonCustom.TabIndex = 4;
-            this.radioButtonCustom.TabStop = true;
-            this.radioButtonCustom.Text = "Custom";
-            this.radioButtonCustom.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

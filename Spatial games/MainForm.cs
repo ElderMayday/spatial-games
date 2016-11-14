@@ -28,7 +28,10 @@ namespace Spatial_games
             if (radioButtonMax.Checked)
                 reselector = Reselector.Max;
             else if (radioButtonReplicator.Checked)
-                reselector = Reselector.Replicator;
+                if (neighbourhoodType == NeighbourhoodType.Moore)
+                    reselector = Reselector.Replicator8;
+                else
+                    reselector = Reselector.Replicator4;
             else
                 reselector = Reselector.Custom;
 
@@ -103,7 +106,10 @@ namespace Spatial_games
             if (radioButtonMax.Checked)
                 reselector = Reselector.Max;
             else if (radioButtonReplicator.Checked)
-                reselector = Reselector.Replicator;
+                if (neighbourhoodType == NeighbourhoodType.Moore)
+                    reselector = Reselector.Replicator8;
+                else
+                    reselector = Reselector.Replicator4;
             else
                 reselector = Reselector.Custom;
 
