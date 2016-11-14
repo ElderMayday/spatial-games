@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ActionReselector.cs" />
+    <Compile Include="ActionReselectorCustom.cs" />
     <Compile Include="ActionReselectorMax.cs" />
     <Compile Include="ActionReselectorReplicator.cs" />
     <Compile Include="NeighbourDeterminer.cs" />
