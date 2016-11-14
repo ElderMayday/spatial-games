@@ -70,6 +70,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDownIntervals = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.radioButtonCustom = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
@@ -217,32 +218,33 @@
             // radioButtonSnowdrift
             // 
             this.radioButtonSnowdrift.AutoSize = true;
-            this.radioButtonSnowdrift.Checked = true;
             this.radioButtonSnowdrift.Location = new System.Drawing.Point(10, 42);
             this.radioButtonSnowdrift.Name = "radioButtonSnowdrift";
             this.radioButtonSnowdrift.Size = new System.Drawing.Size(69, 17);
             this.radioButtonSnowdrift.TabIndex = 3;
-            this.radioButtonSnowdrift.TabStop = true;
             this.radioButtonSnowdrift.Text = "Snowdrift";
             this.radioButtonSnowdrift.UseVisualStyleBackColor = true;
             // 
             // radioButtonPrisonersDilemma
             // 
             this.radioButtonPrisonersDilemma.AutoSize = true;
+            this.radioButtonPrisonersDilemma.Checked = true;
             this.radioButtonPrisonersDilemma.Location = new System.Drawing.Point(10, 19);
             this.radioButtonPrisonersDilemma.Name = "radioButtonPrisonersDilemma";
             this.radioButtonPrisonersDilemma.Size = new System.Drawing.Size(111, 17);
             this.radioButtonPrisonersDilemma.TabIndex = 2;
+            this.radioButtonPrisonersDilemma.TabStop = true;
             this.radioButtonPrisonersDilemma.Text = "Prisoners Dilemma";
             this.radioButtonPrisonersDilemma.UseVisualStyleBackColor = true;
             // 
             // groupBoxUpdate
             // 
+            this.groupBoxUpdate.Controls.Add(this.radioButtonCustom);
             this.groupBoxUpdate.Controls.Add(this.radioButtonReplicator);
             this.groupBoxUpdate.Controls.Add(this.radioButtonMax);
             this.groupBoxUpdate.Location = new System.Drawing.Point(304, 12);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
-            this.groupBoxUpdate.Size = new System.Drawing.Size(140, 75);
+            this.groupBoxUpdate.Size = new System.Drawing.Size(140, 96);
             this.groupBoxUpdate.TabIndex = 11;
             this.groupBoxUpdate.TabStop = false;
             this.groupBoxUpdate.Text = "Update mechanism";
@@ -250,12 +252,10 @@
             // radioButtonReplicator
             // 
             this.radioButtonReplicator.AutoSize = true;
-            this.radioButtonReplicator.Checked = true;
             this.radioButtonReplicator.Location = new System.Drawing.Point(10, 42);
             this.radioButtonReplicator.Name = "radioButtonReplicator";
             this.radioButtonReplicator.Size = new System.Drawing.Size(73, 17);
             this.radioButtonReplicator.TabIndex = 3;
-            this.radioButtonReplicator.TabStop = true;
             this.radioButtonReplicator.Text = "Replicator";
             this.radioButtonReplicator.UseVisualStyleBackColor = true;
             // 
@@ -484,6 +484,18 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Number of distribution intervals";
             // 
+            // radioButtonCustom
+            // 
+            this.radioButtonCustom.AutoSize = true;
+            this.radioButtonCustom.Checked = true;
+            this.radioButtonCustom.Location = new System.Drawing.Point(10, 66);
+            this.radioButtonCustom.Name = "radioButtonCustom";
+            this.radioButtonCustom.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonCustom.TabIndex = 4;
+            this.radioButtonCustom.TabStop = true;
+            this.radioButtonCustom.Text = "Custom";
+            this.radioButtonCustom.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,6 +584,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownIntervals;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelMeanDeviation;
+        private System.Windows.Forms.RadioButton radioButtonCustom;
     }
 }
 

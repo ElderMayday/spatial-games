@@ -25,6 +25,7 @@ namespace Spatial_games
             {
                 case Reselector.Max: ActionReselector = new ActionReselectorMax(); break;
                 case Reselector.Replicator: ActionReselector = new ActionReselectorReplicator(Game.maxPayoff, Game.minPayoff); break;
+                case Reselector.Custom: ActionReselector = new ActionReselectorCustom(); break;
             }
 
             player = new Player[height, width];

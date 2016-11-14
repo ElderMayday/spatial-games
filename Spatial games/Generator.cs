@@ -8,7 +8,7 @@ namespace Spatial_games
 {
     static public class Generator
     {
-        static private Random random = new Random();
+        static private Random random = new Random(1);
 
         static public int Next(int number)
         {

@@ -23,7 +23,14 @@ namespace Spatial_games
             bool modelInTime = radioButtonTemporal.Checked;
             GameSymmetric game = radioButtonPrisonersDilemma.Checked ? new TrpsGame(10, 7, 0, 0) : new TrpsGame(10, 7, 0, 3);
             NeighbourhoodType neighbourhoodType = radioButtonMoore.Checked ? NeighbourhoodType.Moore : NeighbourhoodType.VonNeumann;
-            Reselector reselector = radioButtonMax.Checked ? Reselector.Max : Reselector.Replicator;
+            Reselector reselector;
+
+            if (radioButtonMax.Checked)
+                reselector = Reselector.Max;
+            else if (radioButtonReplicator.Checked)
+                reselector = Reselector.Replicator;
+            else
+                reselector = Reselector.Custom;
 
             Lattice lattice = new Lattice(height, width, neighbourhoodType, game, reselector);
 
@@ -91,7 +98,14 @@ namespace Spatial_games
             int width = (int)numericUpDownWidth.Value;
             GameSymmetric game = radioButtonPrisonersDilemma.Checked ? new TrpsGame(10, 7, 0, 0) : new TrpsGame(10, 7, 0, 3);
             NeighbourhoodType neighbourhoodType = radioButtonMoore.Checked ? NeighbourhoodType.Moore : NeighbourhoodType.VonNeumann;
-            Reselector reselector = radioButtonMax.Checked ? Reselector.Max : Reselector.Replicator;
+            Reselector reselector;
+
+            if (radioButtonMax.Checked)
+                reselector = Reselector.Max;
+            else if (radioButtonReplicator.Checked)
+                reselector = Reselector.Replicator;
+            else
+                reselector = Reselector.Custom;
 
             fraction = new List<double>[roundNumber + 1];
 
@@ -143,7 +157,7 @@ namespace Spatial_games
             double mean = values.Sum() / (double)experimentNumber;
             double deviation = Math.Sqrt(values.Sum(x => Math.Pow(x - mean, 2.0)) / (double) experimentNumber);
 
-            if (deviation > 0.001)
+            /*if (deviation > 0.001)
             {
                 leftValue = mean - 3 * deviation;
                 rightValue = mean + 3 * deviation;
@@ -152,7 +166,9 @@ namespace Spatial_games
             {
                 leftValue = mean - 0.1;
                 rightValue = mean + 0.1;
-            }
+            }*/
+
+            leftValue = -0.1; rightValue = 1.1;
 
             intervalWidth = (rightValue - leftValue) / (double)intervalNumber;
 
@@ -188,11 +204,11 @@ namespace Spatial_games
             chartDist.ChartAreas[0].AxisX.Maximum = rightValue;
             chartDist.ChartAreas[0].AxisX.Minimum = leftValue;
 
-            if (leftValue < 0.0)
+            /*if (leftValue < 0.0)
                 chartDist.ChartAreas[0].AxisX.Minimum = -0.1;
 
             if (rightValue > 1.0)
-                chartDist.ChartAreas[0].AxisX.Maximum = 1.1;
+                chartDist.ChartAreas[0].AxisX.Maximum = 1.1;*/
 
             for (int i = 0; i < intervalNumber; i++)
                 chartDist.Series["Probability"].Points.AddXY(leftValue + i * intervalWidth, probability[i]);
